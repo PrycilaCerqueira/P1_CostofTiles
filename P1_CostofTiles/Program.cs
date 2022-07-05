@@ -7,13 +7,18 @@ namespace P1_CostofTiles // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             int menuOption;
+
             double length;
             double width;
             double height;
             double sum;
             double area;
+            
             double costPerUnitOfTile;
-            double totalCost;
+            double tileTotallCost;
+
+            double laborCost;
+            
 
             Console.Write("Find the Cost of Tile to Cover the Floor \n\n Enter the length in meters: ");
             length = Double.Parse(Console.ReadLine());
@@ -36,20 +41,32 @@ namespace P1_CostofTiles // Note: actual namespace depends on the project name.
                 case 1: //Triangle
                     sum = (length + width + height) / 2;
                     area = Math.Sqrt(sum * (sum - length) * (sum - width) * (sum - height));
-                    totalCost = Math.Round((area * costPerUnitOfTile),2);
-                    Console.WriteLine($"\n The total cost for covering a Tringle area of {area} square meters is ${totalCost}.");
+                    tileTotallCost = Math.Round((area * costPerUnitOfTile),2);
+                    
+                    laborCost = Math.Round(((area /20) * 86),2);
+
+                    Console.WriteLine($"\n The tile cost for covering a Tringle area of {area} square meters is ${tileTotallCost}.");
+                    Console.WriteLine($" The labor cost for the service is ${laborCost}. \n Totalizing in ${Math.Round(tileTotallCost + laborCost)}.");
                     break;
 
                 case 2: //Trapezoid
                     area = ((length + width) / 2) * height;
-                    totalCost = Math.Round((area * costPerUnitOfTile),2);
-                    Console.WriteLine($"\n The total cost for covering a Trapezoid area of {area} square meters is ${totalCost}.");
+                    tileTotallCost = Math.Round((area * costPerUnitOfTile),2);
+
+                    laborCost = Math.Round(((area / 20) * 86),2);
+
+                    Console.WriteLine($"\n The total cost for covering a Trapezoid area of {area} square meters is ${tileTotallCost}.");
+                    Console.WriteLine($" The labor cost for the service is ${laborCost}. \n Totalizing in ${Math.Round(tileTotallCost + laborCost)}.");
                     break;
 
                 case 3: //Rectangle
                     area = length * width;
-                    totalCost = Math.Round((area * costPerUnitOfTile),2);
-                    Console.WriteLine($"\n The total cost for covering a Rectangle area of {area} square meters is ${totalCost}.");
+                    tileTotallCost = Math.Round((area * costPerUnitOfTile),2);
+
+                    laborCost = Math.Round(((area / 20) * 86), 2);
+
+                    Console.WriteLine($"\n The total cost for covering a Rectangle area of {area} square meters is ${tileTotallCost}.");
+                    Console.WriteLine($" The labor cost for the service is ${laborCost}. \n Totalizing in ${Math.Round(tileTotallCost + laborCost)}.");
                     break;
                    
                 default: //Invalid Option
