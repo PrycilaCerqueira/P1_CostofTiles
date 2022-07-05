@@ -31,27 +31,28 @@ namespace P1_CostofTiles // Note: actual namespace depends on the project name.
             menuOption = Int32.Parse(Console.ReadLine());
             
             switch (menuOption)
-            { 
+            {
+                // Calculation matches with https://www.calculator.net/area-calculator.html
                 case 1: //Triangle
                     sum = (length + width + height) / 2;
                     area = Math.Sqrt(sum * (sum - length) * (sum - width) * (sum - height));
-                    totalCost = area * costPerUnitOfTile;
+                    totalCost = Math.Round((area * costPerUnitOfTile),2);
                     Console.WriteLine($"\n The total cost for covering a Tringle area of {area} square meters is ${totalCost}.");
                     break;
 
                 case 2: //Trapezoid
                     area = ((length + width) / 2) * height;
-                    totalCost = area * costPerUnitOfTile;
+                    totalCost = Math.Round((area * costPerUnitOfTile),2);
                     Console.WriteLine($"\n The total cost for covering a Trapezoid area of {area} square meters is ${totalCost}.");
                     break;
 
                 case 3: //Rectangle
                     area = length * width;
-                    totalCost = area * costPerUnitOfTile;
+                    totalCost = Math.Round((area * costPerUnitOfTile),2);
                     Console.WriteLine($"\n The total cost for covering a Rectangle area of {area} square meters is ${totalCost}.");
                     break;
                    
-                default:
+                default: //Invalid Option
                     Console.WriteLine("\n Invalid option. \n Try again!");
                     break;
             }
